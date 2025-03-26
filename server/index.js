@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const authRoutes = require("./Routes/AuthRouters");
+const cookieParser = require("cookie-parser");
 
 app.listen(4000, () => {
   console.log("server is running on port 4000");
@@ -24,4 +26,6 @@ app.use(cors({
   credentials: true,
 }))
 
+app.use(cookieParser());
 app.use(express.json());
+app.use("/", authRoutes);

@@ -2,14 +2,15 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Components/Login/Login';
+import Register from './Components/Login/Register';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>} />
-        {/* <Route path="/register" element={<Register />} />
-        <Route path="/newProject" element={<Project />} />
+        <Route path="/register" element={<Register />} />
+        {/* <Route path="/newProject" element={<Project />} />
         <Route path="/podcast" element={<PodCast />} /> */}
            
       
