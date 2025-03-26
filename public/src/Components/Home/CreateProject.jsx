@@ -19,7 +19,7 @@ const CreateProject = () => {
     };
   
     const handleCreateProject = () => {
-      if(inputValue.trim() === '') {
+      if(inputValue === '') {
         setAlertVisible(true);
         setInputValue('');
         setFlag(true);
@@ -56,8 +56,7 @@ const CreateProject = () => {
                 </>
             </Modal>
 
-      </section>) : (<ProjectList />)}    
-      
+      </section>):(<ProjectList />)}
     
       </>
   )
