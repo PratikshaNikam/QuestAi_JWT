@@ -1,0 +1,127 @@
+.Container{
+  display:flex;
+  flex-direction: row;
+  width:100vw;
+  height: 100vh;
+ 
+}
+
+.SubContainer1{
+  background: url("../../assets/Mask\ group.png"),linear-gradient(#3A0B63,#C37EFF) ;
+  /* background-image: url("../../assets/Mask\ group.png"); */
+  background-size:cover;
+  width:65%;
+  height:100%;
+  color:#ffffff;
+}
+
+.Intro{
+  font-size:300%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.SubIntro{
+  margin-left: 10%;
+  font-size: 150%;
+}
+
+.SubContainer2{
+  width:35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Img{
+  margin-left: 10%;
+  margin-top: 10%;
+  width:15vw;
+  height:8vh;
+
+}
+.Img2{
+  width:20%;
+  height:15%;
+}
+
+.Text1{
+  color:#7E22CE;
+  font-size:200%;
+  margin-top: 1%;
+  margin-bottom: 0.1%;
+}
+
+.Text2{
+  color:#7E22CE;
+  font-size:200%;
+  font-weight: bold;
+  margin-top: 0.1%;
+
+}
+.Email{
+  width:20vw;
+  height:5vh;
+  border-width: 2px;
+  border-color: #c4c4c4;
+  border-style:groove;
+}
+
+.Password{
+  margin-top: 10px;
+  width:20vw;
+  height:5vh;
+  border-width: 2px;
+  border-color:#c4c4c4;
+  border-style:groove;
+
+}
+.SubContainer3{
+  display: flex;
+  flex-direction:row;
+  margin-top: 1%;
+}
+.RememberText{
+  font-size: 80%;
+}
+.ForgotPassword{
+  margin-left: 70px;
+  font-size: 80%;
+}
+.PasswordTag{
+  margin-left: 100%;
+}
+.Button{
+  background-color: #7E22CE;
+  width:20vw;
+  height:5vh;
+  color:#ffffff;
+  font-weight: bold;
+  font-size:medium;
+  margin-top: 5%;
+  border-radius: 8px;
+  cursor: pointer;
+  
+}
+.Button1{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  width:20vw;
+  height:5vh;
+  font-weight: bold;
+  margin-top: 5%;
+  border-radius: 8px;
+  align-self: cen;
+ 
+}
+
+.GoogleImage{
+  width:6%;
+  height:70%;
+  margin-right: 5%;
+  margin-top: 3%;
+}
+.googleButton{
+  margin-bottom: 80%;
+}
