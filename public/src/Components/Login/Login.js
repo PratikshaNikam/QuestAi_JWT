@@ -7,43 +7,48 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassWord] = useState("")
-  const navigate=useNavigate();
+  const [values,setValues]=useState({
+    email:"",
+    password:"",
+  })
+  const navigate = useNavigate();
   
-  const handleLogin = async(e) => {
-    e.preventDefault();
-
-    try { 
-      const {data} = await axios.post("http://localhost:4000/login", {
-        email: email,
-        password: password,
+  const generateError =(err)=>toast.error(err,{
+    position:"bottom-right"
+  })
+  
+  const handleLogin= async(e) => {
+    
+    try {
+      const { data } = await axios.post("http://localhost:4000/login", {
+        ...values
+      }, {
+        withCredentials: true,
       });
+      // console.log(data);
+      if (data) {
+        if (data.errors) {
+          const { email, password } = data.errors;
+          if (email) {
+            generateError(email);
+          }
+          else if (password) {
+            generateError(password);
+          }
+        }
+          else {
+           navigate("/home");
+          }
+        
+      }
     }
     catch (error) {
       console.log(error);
     }
-    // axios.post("http://localhost:4000/login", {
-    //   email: email,
-    //   password: password,
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-    //navigate("/newProject");
-  }
-
-  const handleRegister = async(e) => {
-    e.preventDefault();
-    navigate("/register")
-  }
-
+}
   return (
     <>
       <div className="Container">
@@ -60,8 +65,8 @@ const Login = () => {
           <img className="Img2" alt="ques_img2" src={quesImage2} />
           <p className="Text1">Welcome to</p>
           <p className="Text2">Ques.AI</p>
-          <input className="Email" placeholder="Email Address" value={email} onChange={(e)=>{setEmail(e.target.value)}}></input>
-          <input className="Password" placeholder="Password" value={password} onChange={(e)=>{setPassWord(e.target.value)}}></input>
+          <input className="Email" placeholder="Email Address" name="email" onChange={(e) => { setValues({ ...values, [e.target.name]: e.target.value }) }}></input>
+          <input type="password" className="Password" placeholder="Password" name="password" onChange={(e)=>{ setValues({ ...values, [e.target.name]: e.target.value }) }}></input>
 
           <div className="SubContainer3">
             <label className="RememberText">
@@ -84,6 +89,7 @@ const Login = () => {
           
         </div>
       </div>
+      <ToastContainer/>
     </>
   )
   

@@ -1,0 +1,95 @@
+.Main-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.Title{
+  font-size: 250%;
+  font-weight: bold;
+  margin-top: 5vh;
+  color:#7E22CE
+}
+.GroupImage{
+  width: 15vw;
+  height:25vh;
+}
+
+.Info{
+  color:#808080;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+.Create-button{
+  background-color: #000000;
+  width:15vw;
+  height:5vh;
+  color:#ffffff;
+  font-weight: bold;
+  font-size:5vw;
+  margin-top: 3%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 5vh;
+  
+}
+
+.Modal{
+  border-width: "2px solid";
+  border-color: #7E22CE;
+  background-color:#f4f0f0;
+  box-shadow: "2px solid black";
+  height: 38vh;
+  width: 45vw;
+  margin-left: 30vw;
+  margin-top: 35vh;
+  padding-left: 1%;
+  border-radius: 8px;
+}
+
+.EmptyAlert{
+  color:red;
+  font-size: 70%;
+}
+.ProjectName{
+  width:43vw;
+  height:7vh;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: #c4c4c4;
+  border-style:groove;
+
+}
+
+.Button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-end;
+  margin-top: 8vh;
+  margin-right: 2vw;
+}
+
+.Create{
+  background-color: #7E22CE;
+  color: #ffffff;
+  font-weight: bold;
+  width:5vw;
+  height:5vh;
+  border-radius: 10px;
+  border-width: 0px;
+  font-size: 100%;
+}
+.Cancel{
+  border-width: 0px;
+  font-weight: bold;
+  color:#eb271ceb;
+  width:5vw;
+  height:5vh;
+  font-size: 100%;
+  border-radius: 10px;
+}

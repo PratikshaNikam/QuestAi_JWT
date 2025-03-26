@@ -6,7 +6,7 @@ import quesImage2 from "../../assets/QuesLogo_2.png"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { toast, ToastContainer } from "react-toastify";
 
 const Register = () => {
   
@@ -17,33 +17,39 @@ const Register = () => {
   })
   const navigate = useNavigate();
   
-
+  const generateError =(err)=>toast.error(err,{
+    position:"bottom-right"
+  })
   
   const handleRegister = async(e) => {
-    e.preventDefault();
-    try { 
-      const {data} = await axios.post("http://localhost:4000/register", {
+    
+    try {
+      const { data } = await axios.post("http://localhost:4000/register", {
         ...values
       }, {
         withCredentials: true,
       });
-      console.log(data);
+      // console.log(data);
       if (data) {
         if (data.errors) {
-          
+          const { email, password } = data.errors;
+          if (email) {
+            generateError(email);
+          }
+          else if (password) {
+            generateError(password);
+          }
         }
-        else {
-          
-        }
+          else {
+           navigate("/");
+          }
+        
       }
     }
     catch (error) {
       console.log(error);
     }
-
-    //navigate("/")
-  
-  }
+}
 
   return (
     <>
@@ -63,7 +69,7 @@ const Register = () => {
           <p className="Text2">Ques.AI</p>
           <input
             className="Email" type="email" placeholder="Email Address" name="email" onChange={(e) => { setValues({ ...values, [e.target.name]: e.target.value }) }}></input>
-          <input className="Password" placeholder="Password" name="password" onChange={(e)=>{ setValues({ ...values, [e.target.name]: e.target.value }) }}></input>
+          <input className="Password" type="password" placeholder="Password" name="password" onChange={(e)=>{ setValues({ ...values, [e.target.name]: e.target.value }) }}></input>
 
           
 
@@ -74,6 +80,7 @@ const Register = () => {
           
         </div>
       </div>
+      <ToastContainer/>
     </>
   )
   
