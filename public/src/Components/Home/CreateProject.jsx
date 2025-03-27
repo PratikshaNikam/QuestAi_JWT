@@ -19,13 +19,15 @@ const CreateProject = () => {
     };
   
     const handleCreateProject = () => {
-      if(inputValue === '') {
+     if(inputValue === '') {
         setAlertVisible(true);
         setInputValue('');
-        setFlag(true);
+        setFlag(false);
+        setAlertVisible(true)
       }
       else {
         setOpen(false);
+        setFlag(true);
         setInputValue('');
         setAlertVisible(false);
       }
