@@ -3,13 +3,22 @@ import questImage from "../../assets/QuesLogoPurple.png";
 import "./PodCast.css";
 import { useState } from "react";
 import Cards from "./Cards";
-import Modal from 'react-modal';
 import Youtube from "../../assets/youtube.png";
 import Feed from "../../assets/feed.png";
 import Upload from "../../assets/upload.png";
+import AccountSetting from "./AccountSetting";
 
 const PodCast = () => {
   const [pathData, setPathData] = useState("");
+  
+  const [accountSettings, setAccountSettings] = useState(false);
+
+
+ const handleUserName = () => {
+    setAccountSettings(!accountSettings);
+  };
+  
+
   
 return (
     <>
@@ -48,7 +57,7 @@ return (
 
           <hr style={{ width: "15vw", marginTop: "1vw", color: "#808080" }} />
 
-          <div className="podcast-button1" >
+          <div className="podcast-button1" onClick={handleUserName} >
           <ion-icon name="image-outline" style={{width:"1.1vw", height:"1vw"}}></ion-icon>
             <p className="Podcast-title1">Username</p>
           </div>
@@ -66,12 +75,12 @@ return (
               <ion-icon name="exit-outline" style={{color:"red"}}></ion-icon>
             </div>
             
-          </header>
-
-          <section>
+        </header>
+        
+        {!accountSettings?( <section>
             <p style={{ marginLeft:"4vw", fontSize: "2vw", fontWeight: "bold" }}>Add Podcast</p>
             <div className="Card-container">
-             <Cards name="RSS Feed" data="Lorem ipsum dolor sit amet." image={Feed}  />
+            <Cards name="RSS Feed" data="Lorem ipsum dolor sit amet." image={Feed} />
               <Cards name="Youtube Video" data="Lorem ipsum dolor sit amet." image={Youtube} />
               <Cards name="Upload Files" data="Lorem ipsum dolor sit amet." image={Upload} />
             </div>
@@ -84,7 +93,9 @@ return (
             </section>
             
 
-        </section>
+        </section>):(<AccountSetting/>)}
+
+         
       </div>
       </div>
         </>
